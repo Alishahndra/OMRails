@@ -1,4 +1,10 @@
 OMRails::Application.routes.draw do
+  resources :community_specifics
+
+
+  resources :pins
+
+
   devise_for :users
 
   get 'about' => 'pages#about'
