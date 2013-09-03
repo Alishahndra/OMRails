@@ -1,7 +1,4 @@
 OMRails::Application.routes.draw do
-  resources :community_specifics
-
-
   resources :pins
 
 
