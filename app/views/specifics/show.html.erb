@@ -1,10 +1,15 @@
 <div class="row">
     <div class="span6 offset3">
         <div class="well">
+        		<p>
+        			<%= @specific.description %>
+      			</p>
             <p>
-              <%= @specific.description %>
+              <%= @specific.user.name %>
             </p>
+            <% if current_user == @specific.user %>
             <%= link_to 'Edit', edit_specific_path(@specific) %> |
+            <% end %>
             <%= link_to 'Back', specifics_path %>
         </div>
     </div>

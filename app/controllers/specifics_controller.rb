@@ -1,8 +1,10 @@
 class SpecificsController < ApplicationController
+  before_filter :authenticate_user!
+
   # GET /specifics
   # GET /specifics.json
   def index
-    @specifics = Specific.all
+    @specifics = current_user.specifics.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -24,7 +26,7 @@ class SpecificsController < ApplicationController
   # GET /specifics/new
   # GET /specifics/new.json
   def new
-    @specific = Specific.new
+    @specific = current_user.specifics.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +36,13 @@ class SpecificsController < ApplicationController
 
   # GET /specifics/1/edit
   def edit
-    @specific = Specific.find(params[:id])
+    @specific = currentuser.specifics.find(params[:id])
   end
 
   # POST /specifics
   # POST /specifics.json
   def create
-    @specific = Specific.new(params[:specific])
+    @specific = current_user.specifics.new(params[:specific])
 
     respond_to do |format|
       if @specific.save
@@ -56,7 +58,7 @@ class SpecificsController < ApplicationController
   # PUT /specifics/1
   # PUT /specifics/1.json
   def update
-    @specific = Specific.find(params[:id])
+    @specific = current_user.specifics.find(params[:id])
 
     respond_to do |format|
       if @specific.update_attributes(params[:specific])
@@ -72,7 +74,7 @@ class SpecificsController < ApplicationController
   # DELETE /specifics/1
   # DELETE /specifics/1.json
   def destroy
-    @specific = Specific.find(params[:id])
+    @specific = current_user.specifics.find(params[:id])
     @specific.destroy
 
     respond_to do |format|

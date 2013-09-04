@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130904005336) do
+ActiveRecord::Schema.define(:version => 20130904013153) do
 
   create_table "community_specifics", :force => true do |t|
     t.string   "Content"
@@ -46,7 +46,10 @@ ActiveRecord::Schema.define(:version => 20130904005336) do
     t.string   "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "user_id"
   end
+
+  add_index "specifics", ["user_id"], :name => "index_specifics_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
