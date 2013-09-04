@@ -1,4 +1,7 @@
 OMRails::Application.routes.draw do
+  resources :specifics
+
+
   resources :pins
 
 

@@ -11,10 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130903022222) do
+ActiveRecord::Schema.define(:version => 20130904005336) do
 
   create_table "community_specifics", :force => true do |t|
     t.string   "Content"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "cscs", :force => true do |t|
     t.string   "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
@@ -31,6 +37,12 @@ ActiveRecord::Schema.define(:version => 20130903022222) do
 
   create_table "privates", :force => true do |t|
     t.string   "Content"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "specifics", :force => true do |t|
     t.string   "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
